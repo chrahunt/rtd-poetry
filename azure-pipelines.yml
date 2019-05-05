@@ -96,7 +96,7 @@ jobs:
     displayName: Run tests
     inputs:
       scriptPath: .ap/scripts/python.py
-      arguments: -m poetry run pytest -s -ra --junitxml=junit/test-results.xml tests
+      arguments: -m poetry run pytest -ra --junitxml=junit/test-results.xml tests
 
   - task: PublishTestResults@2
     inputs:
@@ -104,15 +104,6 @@ jobs:
       testRunTitle: 'Python $(python.version) $(Agent.OS)'
     condition: succeededOrFailed()
     displayName: Publish test results
-
-    # In lieu of getting logs as attachments on the test summary, we
-    # publish as artifacts.
-  - task: PublishPipelineArtifact@0
-    inputs:
-      artifactName: 'test_logs_$(python.version)_$(Agent.OS)'
-      targetPath: logs/
-    condition: succeededOrFailed()
-    displayName: Publish logs
 
   - task: PythonScript@0
     displayName: Build
