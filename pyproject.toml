@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "rtd-poetry"
+version = "0.1.0"
+description = "Execute poetry install with dev dependencies on RTD"
+authors = ["Chris Hunt <chrahunt@gmail.com>"]
+packages = [
+    { include = "rtd_poetry.py" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+
+[tool.poetry.dev-dependencies]
+pytest = "^3.0"
+
+[tool.intreehooks]
+build-backend = "rtd_poetry"
+
+[build-system]
+requires = ["poetry>=0.12", "intreehooks"]
+build-backend = "intreehooks:loader"
