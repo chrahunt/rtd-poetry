@@ -6,6 +6,7 @@ authors = ["Chris Hunt <chrahunt@gmail.com>"]
 packages = [
     { include = "rtd_poetry.py" },
 ]
+license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.6"
