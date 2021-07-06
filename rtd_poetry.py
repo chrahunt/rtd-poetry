@@ -19,7 +19,7 @@ def prepare_metadata_for_build_wheel(metadata_directory, config_settings=None):
     if os.environ.get('READTHEDOCS') != 'True':
         return name
 
-    poetry = Factory.create_poetry(".")
+    poetry = Factory.create_poetry(Path("."))
 
     metadata = Path(metadata_directory) / name / 'METADATA'
 
