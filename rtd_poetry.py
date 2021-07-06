@@ -3,11 +3,11 @@ import os
 from functools import wraps
 from pathlib import Path
 
-from poetry.masonry.api import *
-from poetry.poetry import Poetry
+from poetry.core.masonry.api import *
+from poetry.core.factory import Factory
 
 
-__version__ = '0.1.0'
+__version__ = '0.1.2'
 
 
 @wraps(prepare_metadata_for_build_wheel)
@@ -19,7 +19,7 @@ def prepare_metadata_for_build_wheel(metadata_directory, config_settings=None):
     if os.environ.get('READTHEDOCS') != 'True':
         return name
 
-    poetry = Poetry.create(".")
+    poetry = Factory.create_poetry(".")
 
     metadata = Path(metadata_directory) / name / 'METADATA'
 
