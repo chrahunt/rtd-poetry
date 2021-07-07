@@ -4,7 +4,7 @@ from functools import wraps
 from pathlib import Path
 
 from poetry.masonry.api import *
-from poetry.factory import Poetry
+from poetry.factory import Factory
 
 
 __version__ = '0.1.1'
